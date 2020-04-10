@@ -4,6 +4,8 @@ import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+
 import "../styles/index.sass";
 
 const TemplateWrapper = ({ children }) => {
@@ -46,9 +48,12 @@ const TemplateWrapper = ({ children }) => {
             render={(data) => (
                 <>
                     <header className="site-header">
-                        <Link to="/">
+                        {/* <Link to="/">
                             {data.datoCmsSite.globalSeo.siteName}
-                        </Link>
+                        </Link> */}
+                        <AniLink cover bg="#663399" to="/">
+                            {data.datoCmsSite.globalSeo.siteName}
+                        </AniLink>
                     </header>
                     <div className={`container ${showMenu ? "is-open" : ""}`}>
                         <HelmetDatoCms
